@@ -8,10 +8,10 @@ public:
         unordered_map<int,int> mpp;
         stack<int> st;
         for(int i=n-1;i>=0;i--){
-              while((!st.empty())&&(st.top()<nums2[i])){
+              while((!st.empty())&&(st.top()<=nums2[i])){
                     st.pop();
               }
-             if((!st.empty())&&(st.top()>=nums2[i])){
+             if((!st.empty())&&(st.top()>nums2[i])){
                 mpp[nums2[i]]=st.top();
              }
               if(st.empty()){
