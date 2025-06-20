@@ -13,12 +13,11 @@ public:
               }
              if((!st.empty())&&(st.top()>=nums2[i])){
                 mpp[nums2[i]]=st.top();
-                st.push(nums2[i]);
              }
               if(st.empty()){
                 mpp[nums2[i]]=-1;
-                st.push(nums2[i]);
-             }           
+             }
+              st.push(nums2[i]);           
         }
         for(int i=0;i<l;i++){
             ans[i]=mpp[nums1[i]];
@@ -27,3 +26,4 @@ public:
         return ans;
     }
 };
+
