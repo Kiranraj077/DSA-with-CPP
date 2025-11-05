@@ -8,40 +8,47 @@ class Solution {
         int vis[V] = {0}; 
         vis[0] = 1; 
         queue<int> q;
+
         // push the initial starting node 
         q.push(0); 
         vector<int> bfs; 
+
         // iterate till the queue is empty 
         while(!q.empty()) {
-           // get the topmost element in the queue 
+            // get the topmost element in the queue 
             int node = q.front(); 
             q.pop(); 
             bfs.push_back(node); 
-            // traverse for all its neighbours 
-        for (int i = 0; i < adj[node].size(); i++) {
-           int it = adj[node][i];
-           if (!vis[it]) {
-               vis[it] = 1;
-               q.push(it);
+
+            // traverse all its neighbours 
+            for (int i = 0; i < adj[node].size(); i++) {
+                int it = adj[node][i];
+                if (!vis[it]) {
+                    vis[it] = 1;
+                    q.push(it);
+                }
             }
-          }
         }
         return bfs; 
     }
-void addEdge(vector <int> adj[], int u, int v) {
+};
+
+// Helper function to add an undirected edge
+void addEdge(vector<int> adj[], int u, int v) {
     adj[u].push_back(v);
     adj[v].push_back(u);
 }
 
-void printAns(vector <int> &ans) {
+// Helper function to print BFS result
+void printAns(vector<int> &ans) {
     for (int i = 0; i < ans.size(); i++) {
         cout << ans[i] << " ";
     }
+    cout << endl;
 }
 
-int main() 
-{
-    vector <int> adj[6];
+int main() {
+    vector<int> adj[6];
     
     addEdge(adj, 0, 1);
     addEdge(adj, 1, 2);
@@ -49,9 +56,9 @@ int main()
     addEdge(adj, 0, 4);
 
     Solution obj;
-    vector <int> ans = obj.bfsOfGraph(5, adj);
+    vector<int> ans = obj.bfsOfGraph(5, adj);
     printAns(ans);
 
     return 0;
 }
-};
+
