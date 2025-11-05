@@ -18,14 +18,13 @@ class Solution {
             q.pop(); 
             bfs.push_back(node); 
             // traverse for all its neighbours 
-            for(auto it : adj[node]) {
-                // if the neighbour has previously not been visited, 
-                // store in Q and mark as visited 
-                if(!vis[it]) {
-                    vis[it] = 1; 
-                    q.push(it); 
-                }
+        for (int i = 0; i < adj[node].size(); i++) {
+           int it = adj[node][i];
+           if (!vis[it]) {
+               vis[it] = 1;
+               q.push(it);
             }
+          }
         }
         return bfs; 
     }
