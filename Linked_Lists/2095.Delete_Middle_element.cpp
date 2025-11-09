@@ -22,7 +22,6 @@ public:
             slow=slow->next;
             fast=fast->next->next;
         }
-        slow->val=midprev->val;
         midprev->next=midprev->next->next;;
         return head;
     }
