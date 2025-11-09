@@ -14,7 +14,7 @@ class Solution {
     Node *insertAtEnd(Node *head, int x) {
       Node* temp=head;
       Node* lastnode=new Node(x);
-      while(temp!=NULL){
+      while(temp->next!=NULL){
           temp=temp->next;
       }
       temp->next=lastnode;
